@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+.divFloatRight
+{
+    float:right;
+    margin:1%;
+}
+
+.divFloatLeft{
+    float:left;
+    margin:1%;
+}
+
+.jumbotron{
+    padding:1.5rem 0.75rem !important;
+}
+
+.header {
+    font-size: 48px;
+    /* line-height: 188px;
+    height: 188px; */
+    font-family: 'PT Sans', sans-serif; 
+}
+
+.alignLeft
+{
+    text-align: left;
+    padding-left: 20px;
+    vertical-align: center;
+}
+.bg-red
+{
+    background: #c80038 !important;
+}
+
+.marginBottom0
+{
+    margin-bottom: 0 !important;
+}
+
+.headerTransition
+{
+    position: fixed !important;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.sticky {
+    font-size: 24px;
+    line-height: 48px !important;
+    height: 48px !important; 
+}
+.legendIndicator{
+    max-width:4.5% !important;
+}
+
+.hideHeader
+{
+    display:none;
+}
+
+.navUp
+{
+    top :48px; 
+}
+
+.navDown
+{
+     top :155px;
+}
+.validationErr{
+    color:rgb(220,53,69);font-size:12.8px;line-height:19.2px;
+}
+span.link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+.generalShift{background-color: rgb(204,255,153)!important;}
+.pLeave{	background-color: rgb(252,214,182) !important;}
+.upLeave{	background-color: rgb(255,117,117) !important;}
+.publicHoliday{	background-color: rgb(148, 127, 34) !important;}
+.weekendMorningShift{	background-color: rgb(102,255,153) !important;}
+.weekendNightShift{	background-color: rgb(86,152,248) !important;}
+.nightShift{	background-color: rgb(150,233,244) !important;}
+.compOff{	background-color: rgb(255,255,153) !important;}
+.weeklyOff{background-color: rgb(217,217,217) !important;}
+.onCall{background-color: rgb(255,153,255) !important;}
+
+.fontstyle{font-size: x-small;}
+.cal-month-view .cal-day-cell{
+    max-height: 65px !important;
+    min-height: 65px !important;
+  }
+
+  .cal-month-view .cal-cell-top{
+      min-height: 20px !important;
+  }
+  
+  .cal-month-view .cal-today.cal-day-cell .cal-day-number{
+      font-size: 1.4em !important;
+      margin-top:2px !important;
+  }
+
+  .h3, h3{
+    font-size:1rem !important;    
+  }
+
+  .removeRowMargin{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.dataTables_wrapper{
+     margin-left:5px !important;
+     margin-right:5px !important;
+ }
+
+ .internalBackground{
+     border-radius : .25rem !important;
+     border: 1px solid #d6d8db !important;
+     /* background: yellow !important; */
+    
+ }
+
+ .cal-month-view .cal-open-day-events{
+     background: white !important;
+     color: black !important;
+ }
