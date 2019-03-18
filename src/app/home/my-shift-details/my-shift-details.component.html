@@ -1,0 +1,28 @@
+
+<div class="container">
+
+        <div class=" row alert alert-secondary"> Shift Details</div>
+                <div class="row">
+                        <div class="col-sm-4">Comp-off  :</div>
+                        <div class="col-sm-8">{{empDetails.compOffCarryForwarded+empDetails.compOffEarned-empDetails.compOffConsumed}}</div>                
+                </div>
+       
+<div class="row">
+        <div class="col-sm-4">Leaves Applied :</div>
+        <div class="col-sm-8">{{empDetails.compOffConsumed}}</div>
+</div>
+<div class="row"><div class="col-sm-4">Request in queue:</div>
+<div class="col-sm-8"> 
+        
+</div>
+</div>
+<div class="row"><div class="col-sm-4">Public Holidays :</div>
+<div class="col-sm-8">
+        <div *ngIf="empDetails.holidays!=undefined && empDetails.holidays!=null"> 
+                <div *ngFor="let holi of empDetails.holidays" class="row">{{holi}}</div>
+        </div>
+</div>
+</div>
+</div>
+
+

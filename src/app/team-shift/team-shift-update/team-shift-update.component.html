@@ -1,0 +1,141 @@
+
+<div class="container">
+  <div class="row" >
+    <div class="col-md-22 col-sm-12 col-xs-12">
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="row-border hover">
+  <thead>
+    <tr>
+      <th class="userName">Associate</th>
+      <th *ngIf="noOfDaysInMonth>=1" (click)="copyDayShiftToOtherDays(1,contentModal1)">1</th><th *ngIf="noOfDaysInMonth>=2" (click)="copyDayShiftToOtherDays(2,contentModal1)">2</th>
+      <th *ngIf="noOfDaysInMonth>=3" (click)="copyDayShiftToOtherDays(3,contentModal1)">3</th><th *ngIf="noOfDaysInMonth>=4" (click)="copyDayShiftToOtherDays(4,contentModal1)">4</th>
+      <th *ngIf="noOfDaysInMonth>=5" (click)="copyDayShiftToOtherDays(5,contentModal1)">5</th><th *ngIf="noOfDaysInMonth>=6" (click)="copyDayShiftToOtherDays(6,contentModal1)">6</th>
+      <th *ngIf="noOfDaysInMonth>=7" (click)="copyDayShiftToOtherDays(7,contentModal1)">7</th><th *ngIf="noOfDaysInMonth>=8" (click)="copyDayShiftToOtherDays(8,contentModal1)">8</th>
+      <th *ngIf="noOfDaysInMonth>=9" (click)="copyDayShiftToOtherDays(9,contentModal1)">9</th><th *ngIf="noOfDaysInMonth>=10" (click)="copyDayShiftToOtherDays(10,contentModal1)">10</th>
+      <th *ngIf="noOfDaysInMonth>=11" (click)="copyDayShiftToOtherDays(11,contentModal1)">11</th><th *ngIf="noOfDaysInMonth>=12" (click)="copyDayShiftToOtherDays(12,contentModal1)">12</th>
+      <th *ngIf="noOfDaysInMonth>=13" (click)="copyDayShiftToOtherDays(13,contentModal1)">13</th><th *ngIf="noOfDaysInMonth>=14"  (click)="copyDayShiftToOtherDays(14,contentModal1)">14</th>
+      <th *ngIf="noOfDaysInMonth>=15" (click)="copyDayShiftToOtherDays(15,contentModal1)">15</th><th *ngIf="noOfDaysInMonth>=16" (click)="copyDayShiftToOtherDays(16,contentModal116)">16</th>
+      <th *ngIf="noOfDaysInMonth>=17" (click)="copyDayShiftToOtherDays(17,contentModal1)">17</th><th *ngIf="noOfDaysInMonth>=18" (click)="copyDayShiftToOtherDays(18,contentModal1)">18</th>
+      <th *ngIf="noOfDaysInMonth>=19" (click)="copyDayShiftToOtherDays(19,contentModal1)">19</th><th *ngIf="noOfDaysInMonth>=20" (click)="copyDayShiftToOtherDays(20,contentModal1)">20</th>
+      <th *ngIf="noOfDaysInMonth>=21" (click)="copyDayShiftToOtherDays(21,contentModal1)">21</th><th *ngIf="noOfDaysInMonth>=22" (click)="copyDayShiftToOtherDays(22,contentModal1)">22</th>
+      <th *ngIf="noOfDaysInMonth>=23" (click)="copyDayShiftToOtherDays(23,contentModal1)">23</th><th *ngIf="noOfDaysInMonth>=24" (click)="copyDayShiftToOtherDays(24,contentModal1)">24</th>
+      <th *ngIf="noOfDaysInMonth>=25" (click)="copyDayShiftToOtherDays(25,contentModal1)">25</th><th *ngIf="noOfDaysInMonth>=26" (click)="copyDayShiftToOtherDays(26,contentModal1)">26</th>
+      <th *ngIf="noOfDaysInMonth>=27" (click)="copyDayShiftToOtherDays(27,contentModal1)">27</th><th *ngIf="noOfDaysInMonth>=28" (click)="copyDayShiftToOtherDays(28,contentModal1)">28</th>
+      <th *ngIf="noOfDaysInMonth>=29" (click)="copyDayShiftToOtherDays(29,contentModal1)">29</th><th *ngIf="noOfDaysInMonth>=30" (click)="copyDayShiftToOtherDays(30,contentModal1)">30</th>
+      <th *ngIf="noOfDaysInMonth>=31"  (click)="copyDayShiftToOtherDays(31,contentModal1)">31</th>
+     </tr>
+  </thead>
+  <tbody>
+    
+      <tr *ngFor="let user of monthUsersShift">
+        <td class="userNameTd" (click)="copyEmpShiftToOtherEmp(user.employeeId,user.employeeName,contentModal)">{{ user.employeeName }}</td>
+           <td (click)="getDetails(dayShift.shiftDay,user.employeeId)" *ngFor="let dayShift of user.monthShift" class="{{ dayShift.shiftCssClass}} shiftBorder" title="{{dayShift.ShortName}}">
+             <div *ngIf="ColumnRow===(user.employeeId+'|'+dayShift.shiftDay)">
+              <select (change)="saveShift($event.target.value)">
+                  <option *ngFor="let c of ShiftTypes" value="{{c.shiftId}}"> {{c.shiftName}} </option>
+                </select>
+            </div>
+             <div *ngIf="ColumnRow!==(user.employeeId+'|'+dayShift.shiftDay)">
+              {{ dayShift.shiftName}}
+             </div>
+          </td> 
+      </tr>
+  </tbody>
+</table> 
+</div>
+</div>
+
+<div class="row">
+  <div *ngFor="let s of ShiftTypes" class="col-sm-1">
+    <div class="{{s.shiftCssClass}} legendKeyCss"></div><div class="legendCss">{{s.shiftName}}</div>
+  </div>
+  <div class="col-sm-4">
+    <button class="btn btn-danger" (click)="save()">Save</button>
+    <button class="btn btn-danger" (click)="reset()">Reset</button>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+</div>
+</div>
+
+<ng-template #contentModal1 let-cl="close" let-dm="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Copy Shift</h4>
+      <button type="button" class="close" aria-label="Close" (click)="resetModal(dm)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="row"><div class="col-sm-6">Copy shift of Date :</div><div class="col-sm-6">{{selectedDate}}</div></div>
+        <div class="row"><div class="col-sm-6">Select Associates :</div><div class="col-sm-6">
+            <ng-multiselect-dropdown  [placeholder]="'Select Associates'" [data]="users" [(ngModel)]="selectedUsers"
+            [settings]="dropdownSettings">
+            </ng-multiselect-dropdown>
+        </div></div>
+        <div class="row"><div class="col-sm-6">From date :</div><div class="col-sm-6">
+            <div class="input-group">
+                <input placeholder="yyyy-mm-dd"  name="FromDate"  [(ngModel)]="FromDate" ngbDatepicker #d="ngbDatepicker" >
+                <div class="input-group-append"><button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                  </button>
+                </div>
+                </div>
+        </div></div>
+        <div class="row"><div class="col-sm-6">To date :</div><div class="col-sm-6">
+            <div class="input-group">
+                <input placeholder="yyyy-mm-dd"  name="ToDate"  [(ngModel)]="ToDate" ngbDatepicker #d1="ngbDatepicker" >
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+                    <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                  </button>
+                </div>
+                </div>
+        </div></div>
+      </div>
+    
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="copyDay(cl)">Change</button>
+        <button type="button" class="btn btn-light" (click)="resetModal(cl)">Cancel</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentModal let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Copy Shift</h4>
+        <button type="button" class="close" aria-label="Close" (click)="resetModal(c)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+        <div class="row"><div class="col-sm-6">Selected Associate :</div><div class="col-sm-6">{{selectedEmpName}}</div></div>
+        <div class="row"><div class="col-sm-6">From date :</div><div class="col-sm-6">
+            <div class="input-group">
+                <input placeholder="yyyy-mm-dd"  name="FromDate"  [(ngModel)]="FromDate" ngbDatepicker #d="ngbDatepicker" >
+                <div class="input-group-append"><button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                  </button>
+                </div>
+                </div>
+
+        </div></div>
+        <div class="row"><div class="col-sm-6">To date :</div><div class="col-sm-6">
+            <div class="input-group">
+                <input placeholder="yyyy-mm-dd"  name="ToDate"  [(ngModel)]="ToDate" ngbDatepicker #d1="ngbDatepicker" >
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+                    <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                  </button>
+                </div>
+                </div>
+        </div></div>
+        <div class="row"><div class="col-sm-6">To Associates :</div><div class="col-sm-6">
+            <ng-multiselect-dropdown  [placeholder]="'Select Associates'" [data]="users" [(ngModel)]="selectedUsers"
+              [settings]="dropdownSettings">
+          </ng-multiselect-dropdown>
+        </div></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="copyShift(c)">Change</button>
+        <button type="button" class="btn btn-light" (click)="resetModal(c)">Close</button>
+      </div>
+    </ng-template>
+
+</div>

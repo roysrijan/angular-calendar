@@ -1,0 +1,28 @@
+i
+{
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    cursor: pointer;
+  }
+  
+i.arrowRight {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+}
+  
+i.arrowLeft {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+  }
+
+.cal-header
+  {
+      font-size:0.7em !important;
+  }
+
+
+  /* .cal-month-view .cal-day-cell{
+    min-height : 55px !important;
+    } */

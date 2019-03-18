@@ -1,0 +1,9 @@
+<div class=" row alert alert-secondary"> Shift Details for the Day</div>
+Date: {{message.dt}}
+
+<div class="cell-totals">
+    <div *ngFor="let e of message.ev">
+     <span class="badge {{ e.color }}">&nbsp;</span>
+     <span class="space">{{e.title}}</span>
+</div>
+  </div>

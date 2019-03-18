@@ -1,0 +1,58 @@
+<div>
+<div class="row">
+    <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <div class="row text-center alert alert-dark">
+      <div class="col-sm-1"  mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"  (viewDateChange)="activeDayIsOpen = false" style="padding:2px;" (click)="calendarPreviousMonth()">
+        <i class="arrowLeft"></i>
+      </div>
+      <div mwlCalendarToday [(viewDate)]="viewDate" class="col-sm-10">
+        <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+      </div>
+      <div class="col-sm-1"  mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false"  style="padding:2px;"  (click)="calendarNextMonth()">
+        <i class="arrowRight"></i>
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+    <div class="row">
+      <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <ng-template #loading>
+                <div class="text-center">
+                  <i class="fa fa-spin fa-spinner fa-5x"></i>
+                  <br>
+                  Loading ...
+                </div>
+              </ng-template>
+          
+        <mwl-calendar-month-view  [viewDate]="viewDate"  [events]="events" [refresh]="refresh" (beforeViewRender)="beforeMonthViewRender($event)">
+        </mwl-calendar-month-view>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>  
+
+    <div>
+        <div class="row text-center ">
+          <div class="col-sm-1 generalShift legendIndicator"></div>
+          <div class="col-sm-3">General Shift</div>
+          <div class="col-sm-1 leave legendIndicator"></div>
+          <div class="col-sm-3">Leave </div>
+          <div class="col-sm-1 publicHoliday legendIndicator"></div>
+          <div class="col-sm-3">Public holiday</div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-1 workingOnWeekend legendIndicator"></div>
+            <div class="col-sm-3">Weekend Shift</div>
+            <div class="col-sm-1 nightShift legendIndicator"></div>
+            <div class="col-sm-3">Night Shift</div>
+            <div class="col-sm-1 compOff legendIndicator"></div>
+            <div class="col-sm-3">Comp off used</div>
+          </div>
+          <br>
+      </div>
+</div>
+
+

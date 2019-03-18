@@ -1,0 +1,38 @@
+.cell-totals {
+    margin: 5px;
+    text-align: center;
+  }
+  .badge {
+    margin-right: 5px;
+    text-align: center;
+    padding : 0.5em !important;
+  }
+  .cal-day-badge{
+    background-color: #f12134 !important;
+    margin-top:  5px !important;
+    margin-left:  3px !important;
+    font-size:9px !important;
+  }
+.cal-event{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 2px;
+  background-color: #1e90ff;
+  border-color: #d1e8ff;
+  color: #fff;
+  position: relative;
+  top: 2px;
+  
+}
+
+.cal-month-view .cal-cell-top{
+  min-height:50px !important;
+}
+
+.cal-month-view .cal-day-number{
+  margin-top: 20px !important;
+  margin-right:2px !important;
+}
+

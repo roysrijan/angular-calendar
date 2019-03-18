@@ -1,0 +1,194 @@
+<div class="container text-center "   >
+    <div class="row " >
+      <div class="col-7 text-center" >
+           <div class="jumbotron">
+          
+          <form name="form" [formGroup]="form"  (ngSubmit)="form.valid && onSubmit(content)"  >
+            <div class="form-group row" >
+                <div class="col-sm-4">
+              <label for="firstName"><font color="red">*</font>First Name :</label>
+                </div>
+                <div class="col-sm-5">
+              <input type="text" placeholder="Enter First Name"  class="form-control" formControlName="firstName" [ngClass]="{'is-invalid':form.get('firstName').touched && form.get('firstName').invalid}" required />
+            
+        
+              <div *ngIf="form.get('firstName').touched && form.get('firstName').invalid"  class="invalid-feedback">
+                <div *ngIf="form.get('firstName').errors.required">First Name is required</div>
+                <div *ngIf="form.get('firstName').errors.pattern">First Name should contain only alphabets</div>
+              </div>
+            
+            </div>    
+            </div>
+            <div class="form-group row">
+                    <div class="col-sm-4">
+                            <label for="middleName">Middle Name:</label> 
+                    </div>
+                    <div class="col-sm-5">
+                            <input type="text"placeholder="Enter Middle Name"  class="form-control" formControlName="middleName"  [ngClass]="{'is-invalid':form.get('middleName').touched && form.get('middleName').invalid}"/>
+                   
+                    <div  class="invalid-feedback">Please enter a valid Middle Name</div>
+            </div>
+          </div>
+            <div class="form-group row">
+             <div class="col-sm-4">
+              <label for="lastName"><font color="red">*</font>Last Name:</label>
+              </div>
+              <div class="col-sm-5">
+              <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastName" [ngClass]="{'is-invalid':form.get('lastName').touched && form.get('lastName').invalid}" required />
+              <div  *ngIf="form.get('lastName').touched && form.get('lastName').invalid" class="invalid-feedback">
+                  <div *ngIf="form.get('lastName').errors.required">Last Name is required</div>
+                  <div *ngIf="form.get('lastName').errors.pattern">Last name should contain only alphabets</div>
+              </div>
+            </div>
+            </div>
+            <div class="form-group row">
+             <div class="col-sm-4">
+              <label for="EmployeeId"><font color="red">*</font>Employee ID :</label>
+              </div>
+              <div class="col-sm-5">
+              <input type="text" class="form-control" placeholder="Enter Employee ID" formControlName="EmployeeId" [ngClass]="{'is-invalid':form.get('EmployeeId').touched && form.get('EmployeeId').invalid}" required />
+              <div class="invalid-feedback">
+                <div>Employee ID is required</div>
+              </div>
+            </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+              <label for="email"><font color="red">*</font>Email ID :</label>
+              </div>
+              <div class="col-sm-5">
+              <input type="text" class="form-control"placeholder="Enter Email ID" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
+              <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="invalid-feedback">
+                <div *ngIf="form.get('email').errors.required">Email ID is required</div>
+                <div *ngIf="form.get('email').errors.email">Email must be a valid email Address</div>
+            
+              </div>
+            </div>
+            </div>
+            <div class="form-group row">
+                    <div class="col-sm-4">
+                     <label for="Contact"><font color="red">*</font>Phone No .:</label>
+                     </div>
+                     <div class="col-sm-5">
+                     <input type="text" class="form-control" placeholder="Enter Phone No."formControlName="Contact" [ngClass]="{'is-invalid':form.get('Contact').touched && form.get('Contact').invalid}" required  maxlength="10"/>
+                     <div *ngIf="form.get('Contact').touched && form.get('Contact').invalid" class="invalid-feedback">
+                      <div *ngIf="form.get('Contact').errors.pattern">Phone No. should contain only numbers</div>
+                      <div *ngIf="form.get('Contact').errors.minlength">Phone No.  must be a atleast 10 Digits</div>
+                      <div *ngIf="form.get('Contact').errors.maxlength">Phone No.  must be a Max 10 Digits</div>
+                      <div *ngIf="form.get('Contact').errors.required">Phone No. is required</div>
+                      
+                     </div>
+                   </div>
+                </div>
+                <div class="form-group row">
+                        <div class="col-sm-4">
+                         <label for="Team"><font color="red">*</font>Team :</label>
+                         </div>
+                         <div class="col-sm-5">
+                         <select  class="form-control" placeholder="Enter Team" formControlName="Team" [ngClass]="{'is-invalid':form.get('Team').touched && form.get('Team').invalid }" required >
+                                 <option value="Select">Select</option>
+                                <option *ngFor="let t of teamList" value="{{t.objValue}}"> {{t.objText}} </option>
+
+                         </select>
+                         <div class="invalid-feedback">
+                           <div>Team is required</div>
+                         </div>
+                       </div>
+                    </div>
+                    <div class="form-group row">
+                            <div class="col-sm-4">
+                             <label for="Location"><font color="red">*</font>Location:</label>
+                             </div>
+                             <div class="col-sm-5">
+                             <select type="text" class="form-control" formControlName="Location" [ngClass]="{'is-invalid':form.get('Location').touched && form.get('Location').invalid}" required >
+                              <option value="select">Select</option>      
+                              <option *ngFor="let l of locationList" value="{{l.objValue}}"> {{l.objText}} </option>
+                              </select>
+                             <div class="invalid-feedback">
+                               <div>Location is required</div>
+                             </div>
+                           </div>
+                        </div>
+            <div class="form-group row">
+                    <div class="col-sm-4">
+              <label for="password"> <font color="red">*</font>Password :</label>
+              </div>
+              <div class="col-sm-5">
+              <input type="password" class="form-control" placeholder="Enter Password"  formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" [(ngModel)]="password" required />
+              <div *ngIf="form.get('password').touched && form.get('password').invalid"  class="invalid-feedback">
+                <div *ngIf="form.get('password').errors.required">Password is required</div>
+                <div *ngIf="form.get('password').errors.minlength">Password  must be a atleast 6 characters</div>
+              </div>
+            </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4">
+                <label for = "confirmPassword"> <font color="red">*</font>Confirm  : </label>
+              </div>
+              <div class="col-sm-5">
+                
+                <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword" [ngClass]="{'is-invalid':form.get('confirmPassword').touched && form.get('confirmPassword').invalid}" [(ngModel)]="confirmPassword" required /> 
+
+                <div>
+                    <div *ngIf="form.get('confirmPassword').touched && password != confirmPassword "  style="font-size: 80%; color: #dc3545" >Confirm Password doesnot match password provided.</div>
+                  </div>
+                  <div class="invalid-feedback">
+                  <div *ngIf="form.get('confirmPassword').errors?.required">Confirm Password is required</div>
+                  
+                </div>
+              </div>
+              
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4">
+               <label for="Question"><font color="red">*</font>Select Question :</label>
+               </div>
+               <div class="col-sm-5">
+               <select  class="form-control"  formControlName="Question" placeholder="Enter Question" [ngClass]="{'is-invalid':form.get('Question').touched && form.get('Question').invalid}" required >
+                      <option value="Select">Select</option>
+                      <option value="Question1">What is your secret?</option>
+                      <option value="Question2">What is the answer to your secret question?</option>
+                      <option value="Question3">What is your favorite thing?</option>
+                      
+               </select>
+               <div class="invalid-feedback">
+                 <div>Question Selection is required</div>
+               </div>
+             </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-4">
+             <label for="Answer"><font color="red">*</font>Your Answer :</label>
+             </div>
+             <div class="col-sm-5">
+             <input type="password"  class="form-control" placeholder="  Enter Answer" formControlName="Answer" [ngClass]="{'is-invalid':form.get('Answer').touched && form.get('Answer').invalid}" required /> 
+             <div class="invalid-feedback">
+               <div>Answer is required</div>
+             </div>
+           </div>
+        </div>
+            <div >
+              <button type="submit" class="btn btn-danger" [disabled]="!form.valid" >Register</button> 
+              <button class="btn btn-danger"  style="margin:70px" type="reset" >Reset</button>
+              
+            </div>
+          </form>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="continueToSignin()">Continue</button>
+    </div>
+  </ng-template>

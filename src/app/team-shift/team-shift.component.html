@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="row" (focusout)="alert(1);" >
+      <div class="col-md-22 col-sm-12 col-xs-12">
+ <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="row-border hover">
+    <thead>
+      <tr>
+        <th class="userName">Associate</th>
+        <th *ngIf="noOfDaysInMonth>=1">1</th><th *ngIf="noOfDaysInMonth>=2">2</th><th *ngIf="noOfDaysInMonth>=3">3</th>
+        <th *ngIf="noOfDaysInMonth>=4">4</th><th *ngIf="noOfDaysInMonth>=5">5</th><th *ngIf="noOfDaysInMonth>=6">6</th>
+        <th *ngIf="noOfDaysInMonth>=7">7</th><th *ngIf="noOfDaysInMonth>=8">8</th><th *ngIf="noOfDaysInMonth>=9">9</th>
+        <th *ngIf="noOfDaysInMonth>=10">10</th>
+        <th *ngIf="noOfDaysInMonth>=11">11</th><th *ngIf="noOfDaysInMonth>=12">12</th><th *ngIf="noOfDaysInMonth>=13">13</th>
+        <th *ngIf="noOfDaysInMonth>=14">14</th><th *ngIf="noOfDaysInMonth>=15">15</th><th *ngIf="noOfDaysInMonth>=16">16</th>
+        <th *ngIf="noOfDaysInMonth>=17">17</th><th *ngIf="noOfDaysInMonth>=18">18</th><th *ngIf="noOfDaysInMonth>=19">19</th>
+        <th *ngIf="noOfDaysInMonth>=20">20</th>
+        <th *ngIf="noOfDaysInMonth>=21">21</th><th *ngIf="noOfDaysInMonth>=22">22</th><th *ngIf="noOfDaysInMonth>=23">23</th>
+        <th *ngIf="noOfDaysInMonth>=24">24</th><th *ngIf="noOfDaysInMonth>=25">25</th><th *ngIf="noOfDaysInMonth>=26">26</th>
+        <th *ngIf="noOfDaysInMonth>=27">27</th><th *ngIf="noOfDaysInMonth>=28">28</th><th *ngIf="noOfDaysInMonth>=29">29</th>
+        <th *ngIf="noOfDaysInMonth>=30">30</th><th *ngIf="noOfDaysInMonth>=31">31</th>
+       </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of monthUsersShift">
+            <td class="userNameTd">{{ user.employeeName }}</td>
+             <td (click)="getDetails(dayShift.shiftShortName,dayShift.shiftDay,user.employeeId,dayShift.shiftId)" *ngFor="let dayShift of user.monthShift" class="{{ dayShift.shiftCssClass}} shiftBorder" title="{{dayShift.ShortName}}">
+               <div *ngIf="ColumnRow===(user.employeeId+'|'+dayShift.shiftDay)">
+                <select (change)="saveShift($event.target.value)">
+                    <option *ngFor="let c of ShiftTypes" value="{{c.shiftId}}"> {{c.shiftName}} </option>
+                  </select>
+              </div>
+               <div *ngIf="ColumnRow!==(user.employeeId+'|'+dayShift.shiftDay)">
+                {{ dayShift.shiftName}}
+               </div>
+            </td> 
+        </tr>
+    </tbody>
+  </table> 
+  </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let s of ShiftTypes" class="col-sm-1">
+      <div class="{{s.shiftCssClass}} legendKeyCss"></div><div class="legendCss">{{s.shiftName}}</div>
+    </div>
+  </div>
+  </div>

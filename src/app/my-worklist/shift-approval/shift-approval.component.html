@@ -1,0 +1,30 @@
+<div class=" row alert alert-secondary removeRowMargin">Shift Request Approval</div>
+<div class="row fontstyle removeRowMargin">
+  
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="row-border hover">
+      <thead class="alert alert-secondary">
+        <tr>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Request From </th>
+          <th>Request To</th>
+          <th>Requested Shift</th>
+          <th>Approve/Reject</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sReq of shiftRequestList">
+            
+           <td>{{sReq.employeeId}}</td>
+            <td>{{sReq.employeeName}}</td>
+            <td>{{sReq.requestFrom.day}}/{{sReq.requestFrom.month}}/{{sReq.requestFrom.year}}</td>
+            <td>{{sReq.requestTo.day}}/{{sReq.requestTo.month}}/{{sReq.requestTo.year}}</td>
+            <td>{{sReq.selectedRequestType}}</td>
+            
+            <td><span><img src="../../../assets/images/correct.png" style="margin-right:5px;cursor:pointer;" title ="Approve" (click)="saveShiftRequest('approve',sReq.requestId)"/>
+              <img src="../../../assets/images/incorrect.png" style="margin-left:5px;cursor:pointer;" title="Reject" (click)="saveShiftRequest('reject',sReq.requestId)"/></span></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  

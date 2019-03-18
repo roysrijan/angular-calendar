@@ -1,0 +1,32 @@
+
+td,th{
+	min-width: 28px !important;
+	padding:2px  !important;
+}
+
+
+th
+{
+	font-size:x-small;
+}
+
+.userNameTd { font-size : x-small;}
+.userName {min-width:100px !important;}
+
+
+.generalShift{font-size: 6px !important;  color: rgb(204,255,153) !important; }
+.pLeave{	font-size: 6px !important; 	 color: rgb(252,214,182)  !important; }
+.upLeave{	font-size: 6px !important; 	 color:  rgb(255,117,117) !important; }
+.publicHoliday{	font-size: 6px !important;  color: rgb(255,212,29) !important; }
+.weekendMorningShift{color: rgb(102,255,153) !important; 	font-size: 6px !important; }
+.weekendNightShift{ color: rgb(86,152,248) !important; 	font-size: 6px !important; }
+.nightShift{color:  rgb(150,233,244) !important; 	font-size: 6px !important; }
+.compOff{ color:  rgb(255,255,153) !important; 	font-size: 6px !important; }
+.weeklyOff{color:  rgb(217,217,217) !important; 	font-size: 6px !important; }
+.onCall{color:  rgb(255,153,255) !important; 	font-size: 6px !important; }
+
+
+.shiftBorder { border-color: white !important; border-bottom-width:3px !important;border-top-width:3px !important; }
+
+.legendCss{font-size: x-small !important;}
+.legendKeyCss{width:25px;height: 25px;}

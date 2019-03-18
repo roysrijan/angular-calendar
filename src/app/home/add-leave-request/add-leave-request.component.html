@@ -1,0 +1,62 @@
+<div class="container">
+
+  <div class=" row alert alert-secondary"> Add Request</div>
+  
+  <form class="req-form" #reqForm="ngForm" (ngSubmit)="onSubmit(reqForm)">
+  <div class="form-row"> 
+    <div class="col-sm-4"><span style="color:red;">*</span> Request Type :</div>
+    <div class="col-sm-6">
+      <select  class="form-control" name="selectedRequestType"  [(ngModel)]="selectedRequestType" 
+      (ngModelChange)="getShifts($event)">
+       
+        <option value='apply comp-off'>Using Comp Off</option>
+        <option value='change in shift'>Change of shift</option>
+        <option value='apply leave'>Taking Leave</option>
+      </select></div>
+  </div>
+  <br/>
+  <div class="form-row"> 
+    <div class="col-sm-4"><span style="color:red;">*</span>Request From :</div>
+    <div class="col-sm-8">
+        <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"  name="requestFrom"  [(ngModel)]="requestFrom" ngbDatepicker #d="ngbDatepicker" >
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+              </button>
+            </div>
+            </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-row"> 
+    <div class="col-sm-4"><span style="color:red;">*</span>Request To:</div>
+    <div class="col-sm-8">
+      <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd" name="requestTo" [(ngModel)]="requestTo" ngbDatepicker #d1="ngbDatepicker" >
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+          <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-row">
+    <div class="col-sm-4"><span style="color:red;">*</span>Shift Type:</div>
+    <div class="col-sm-8"> 
+      <select class="form-control" name ="selectedShift" [(ngModel)]="selectedShift">
+             <option *ngFor="let s of shiftList" value="{{s.shiftId}}"> {{s.shiftName}} </option>
+      </select>
+    </div>
+  </div>
+  <br/>
+  <div class="form-row">
+      <div class="col-sm-6"> <button  type="submit" class="btn btn-lg btn-block btn-info">Submit</button> </div>
+      <div class="col-sm-6"><button type="button" class="btn btn-lg btn-block btn-secondary" >Reset</button></div>
+    
+  </div>
+
+</form>
+</div>

@@ -1,0 +1,30 @@
+<div class=" row alert alert-secondary removeRowMargin">Login Request Approval</div>
+<div class="row fontstyle removeRowMargin">
+  
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="row-border hover">
+      <thead class="alert alert-secondary">
+        <tr>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Domain</th>
+          <th>Team</th>
+          <th>Role</th>
+          <th>Is shift applicable?</th>
+          <th>Approve/Reject</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{user.employeeId}}</td>
+            <td>{{user.employeeName}}</td>
+            <td>{{user.domain}}</td>
+            <td>{{user.team}}</td>
+            <td>{{user.role}}</td>
+            <td><span *ngIf="user.shiftRosterApplicable">Yes</span><span *ngIf="!user.shiftRosterApplicable">No</span></td>
+            <td><span><img src="../../../assets/images/correct.png" style="margin-right:5px;cursor:pointer;" title ="Approve" (click)="saveLoginRequest('approve',user.requestId)"/>
+              <img src="../../../assets/images/incorrect.png" style="margin-left:5px;cursor:pointer;" title="Reject" (click)="saveLoginRequest('reject',user.requestId)"/></span></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,21 @@
+    <div class="text-white bg-red alignLeft marginBottom0 jumbotron" >
+      <h2>Shift Roster</h2>
+    </div>
+    <div *ngIf="menuDisplay">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" routerLink="home">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#" routerLink="user-signup">Sign Up</a>
+            <a class="nav-item nav-link" href="#" routerLink="team-shift-update">Team Shift Update</a>
+            <a class="nav-item nav-link" href="#" routerLink="team-shift-view">Team Shift View</a>
+            <a class="nav-item nav-link" href="#" routerLink="my-worklist">Worklist</a>
+          </div>
+        </div>
+        <div style="float:right">{{loggedUser}}</div>
+      </nav>
+       
+    </div>
